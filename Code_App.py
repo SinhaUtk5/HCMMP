@@ -25,11 +25,11 @@ import requests
 # df = pd.read_excel(...)  # will work for Excel files
 html_temp = """
 <div style="background-color:tomato;padding:1.5px">
-<h1 style="color:white;text-align:center;">UH MMP Calculator  (HC Gas) </h1>
+<h1 style="color:white;text-align:center;">MMP Calculator  (Hydrocarbon Gas) </h1>
 </div><br>"""
 st.markdown(html_temp,unsafe_allow_html=True)
 
-st.header("Department of Petroleum Engineering: Interaction of Phase Behavior and Flow in Porous Media ([IPBFPM](https://dindoruk.egr.uh.edu/)) Consortium.")
+st.header("Interaction of Phase-Behavior and Flow  ([IPB&F](https://biroldindoruk.engr.tamu.edu/)) Consortium, Texas A&M University.")
 
 st.markdown('<style>h2{color: red;}</style>', unsafe_allow_html=True)
 st.subheader("Product Description - Calculates the Minimum Miscibility Pressure (psia) for CH4 dominant hydrocarbon gas injection.")
@@ -193,3 +193,4 @@ st.image(image, caption='A product of University of Houston')
 
         
     #print('result===',result)
+
