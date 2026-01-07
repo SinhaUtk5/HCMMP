@@ -25,7 +25,7 @@ import requests
 # df = pd.read_excel(...)  # will work for Excel files
 html_temp = """
 <div style="background-color:tomato;padding:1.5px">
-<h1 style="color:white;text-align:center;">MMP Calculator  (Hydrocarbon Gas) </h1>
+<h1 style="color:white;text-align:center;">MMP Calculator for Hydrocarbon Gas Injection) </h1>
 </div><br>"""
 st.markdown(html_temp,unsafe_allow_html=True)
 
@@ -188,9 +188,41 @@ st.subheader("Developed by by [Utkarsh Sinha](https://www.linkedin.com/in/utkars
 #st.subheader('[Ref.: Sinha U., Dindoruk B., & Soliman M. (2023). Physics guided data-driven model to estimate minimum miscibility pressure (MMP) for hydrocarbon gases. Geoenergy Science and Engineering, 211389.](https://www.sciencedirect.com/science/article/abs/pii/S294989102200077X)')
 
 from PIL import Image
-image = Image.open('image-uhtoday.jpg')
-st.image(image, caption='A product of University of Houston')
+# Authors section
+c1, c2 = st.columns(2)
+with c1:
+    img1 = load_square_image("birol.jpg") or load_square_image(
+        "https://upload.wikimedia.org/wikipedia/commons/8/88/Placeholder_avatar.png"
+    )
+    if img1:
+        st.image(img1, caption="Dr. Birol Dindoruk", width=150)
+    st.markdown(
+        """
+        **Dr. Birol Dindoruk**<br>
+        Professor<br>
+        Harold Vance Department of Petroleum Engineering,<br>
+        Texas A&M University
+        """,
+        unsafe_allow_html=True,
+    )
+
+with c2:
+    img2 = load_square_image("utkarsh.jpg") or load_square_image(
+        "https://upload.wikimedia.org/wikipedia/commons/8/88/Placeholder_avatar.png"
+    )
+    if img2:
+        st.image(img2, caption="Utkarsh Sinha", width=150)
+    st.markdown(
+        """
+        **Utkarsh Sinha**<br>
+        Volunteer Research Associate <br>
+        Interaction of Phase-Behavior and Flow (IPB&F) Consortium,<br>
+        """,
+        unsafe_allow_html=True,
+    )
+
 
         
     #print('result===',result)
+
 
