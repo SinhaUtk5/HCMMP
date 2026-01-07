@@ -14,6 +14,7 @@ This is a temporary script file.
 import pandas as pd
 import streamlit as st
 import pickle
+from PIL import Image, ImageOps
 
 import numpy as np
 from io import BytesIO
@@ -187,7 +188,36 @@ if uploaded_file is not None:
 st.subheader("Developed by by [Utkarsh Sinha](https://www.linkedin.com/in/utkarsh-sinha-ba398b75/) and [Dr. Birol Dindoruk](https://www.petro.uh.edu/faculty/dindoruk) [ based on the work in Ref:- Sinha U., Dindoruk B., & Soliman M. (2023). Physics guided data-driven model to estimate minimum miscibility pressure (MMP) for hydrocarbon gases. Geoenergy Science and Engineering, 211389.](https://www.sciencedirect.com/science/article/abs/pii/S294989102200077X)")
 #st.subheader('[Ref.: Sinha U., Dindoruk B., & Soliman M. (2023). Physics guided data-driven model to estimate minimum miscibility pressure (MMP) for hydrocarbon gases. Geoenergy Science and Engineering, 211389.](https://www.sciencedirect.com/science/article/abs/pii/S294989102200077X)')
 
-from PIL import Image
+# --- Utilities ---------------------------------------------------------------------
+def load_square_image(path_or_url: str, size: int = 200) -> Optional[Image.Image]:
+    """Open local path or URL, crop more from the bottom (keep top of head), then resize."""
+    try:
+        # Load image from URL or local path
+        if path_or_url.startswith(("http://", "https://")):
+            with urllib.request.urlopen(path_or_url, timeout=8) as resp:
+                data = resp.read()
+            img = Image.open(io.BytesIO(data)).convert("RGB")
+        else:
+            img = Image.open(path_or_url).convert("RGB")
+
+        w, h = img.size
+        min_side = min(w, h)
+
+        # Adjust cropping: keep ~70% of top region, only crop bottom part
+        left = (w - min_side) // 2
+        top = int((h - min_side) * 0.1)  # only crop 10% from top (keep almost entire head)
+        top = max(0, top)
+        bottom = top + min_side
+        if bottom > h:
+            bottom = h
+            top = h - min_side
+
+        img = img.crop((left, top, left + min_side, bottom))
+        img = img.resize((size, size), Image.LANCZOS)
+        return img
+
+    except Exception:
+        return None
 # Authors section
 c1, c2 = st.columns(2)
 with c1:
@@ -224,5 +254,6 @@ with c2:
 
         
     #print('result===',result)
+
 
 
