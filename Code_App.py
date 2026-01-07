@@ -15,6 +15,7 @@ import pandas as pd
 import streamlit as st
 import pickle
 from PIL import Image, ImageOps
+from typing import List, Tuple, Optional
 
 import numpy as np
 from io import BytesIO
@@ -254,6 +255,7 @@ with c2:
 
         
     #print('result===',result)
+
 
 
 
