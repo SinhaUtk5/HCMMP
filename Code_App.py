@@ -247,7 +247,7 @@ with c2:
         """
         **Utkarsh Sinha**<br>
         Volunteer Research Associate <br>
-        Interaction of Phase-Behavior and Flow (IPB&F) Consortium,<br>
+        Interaction of Phase-Behavior and Flow (IPB&F) Consortium<br>
         """,
         unsafe_allow_html=True,
     )
@@ -255,6 +255,7 @@ with c2:
 
         
     #print('result===',result)
+
 
 
 
