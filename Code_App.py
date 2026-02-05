@@ -27,7 +27,7 @@ import requests
 # df = pd.read_excel(...)  # will work for Excel files
 html_temp = """
 <div style="background-color:tomato;padding:1.5px">
-<h1 style="color:white;text-align:center;">MMP Calculator for Hydrocarbon Gas Injection) </h1>
+<h1 style="color:white;text-align:center;">MMP Calculator for Hydrocarbon Gas Injection </h1>
 </div><br>"""
 st.markdown(html_temp,unsafe_allow_html=True)
 
@@ -255,6 +255,7 @@ with c2:
 
         
     #print('result===',result)
+
 
 
 
