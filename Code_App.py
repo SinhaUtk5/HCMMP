@@ -207,8 +207,7 @@ except Exception as e:
 # --------------------------
 uploaded_file = st.file_uploader("Upload the input CSV file here", type=["csv"])
 
-if uploaded_file is not None:
-    try:
+try:
         df_in = pd.read_csv(uploaded_file)
         st.write("Preview:", df_in.head())
 
@@ -225,9 +224,10 @@ if uploaded_file is not None:
                 mime="text/csv",
             )
 
-    except Exception as e:
+except Exception as e:
         st.error("Prediction failed. Check your CSV formatting and required columns.")
         st.exception(e)
+
 
 
 
