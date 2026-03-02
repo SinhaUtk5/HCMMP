@@ -26,18 +26,22 @@ import requests
 # read a CSV file inside the 'data" folder next to 'app.py'
 # df = pd.read_excel(...)  # will work for Excel files
 html_temp = """
-<div style="background-color:tomato;padding:1.5px">
-<h1 style="color:white;text-align:center;">MMP Calculator for Hydrocarbon Gas Injection </h1>
-</div><br>"""
-st.markdown(html_temp,unsafe_allow_html=True)
+st.title("CO2 MMP Calculator")
+st.markdown("A product of Interaction of Phase-Behavior and Flow (IPB&F) Consortium")
 
-st.header("Interaction of Phase-Behavior and Flow  ([IPB&F](https://biroldindoruk.engr.tamu.edu/)) Consortium, Texas A&M University.")
+st.markdown("**Developed by** - Utkarsh Sinha and Dr. Birol Dindoruk")
 
-st.markdown('<style>h2{color: red;}</style>', unsafe_allow_html=True)
-st.subheader("Product Description - Calculates the Minimum Miscibility Pressure (psia) for CH4 dominant hydrocarbon gas injection.")
-st.markdown('<style>h2{color: red;}</style>', unsafe_allow_html=True)
-st.subheader("[Download Input Template File.](https://drive.google.com/file/d/1HNyZjobmTEBcWfk0C2cmClQfahTONrX1/view?usp=sharing)")
-# st.markdown("[Input Template File Link](https://drive.google.com/file/d/1HNyZjobmTEBcWfk0C2cmClQfahTONrX1/view?usp=sharing)",unsafe_allow_html=True)
+st.markdown(
+    "[Ref. - Sinha, U., Dindoruk, B., & Soliman, M. (2021). Prediction of CO2 Minimum Miscibility Pressure Using an Augmented Machine-Learning-Based Model. SPE Journal, 1-13.](https://doi.org/10.2118/200326-PA)"
+)
+st.markdown(
+    "**Product Description:**  Calculates the Minimum Miscibility Pressure (psia) for CH4 dominant hydrocarbon gas injection."
+)
+
+st.markdown(
+    "1) **Download the example input CSV template file**: "
+    "[Click here](https://drive.google.com/file/d/1HNyZjobmTEBcWfk0C2cmClQfahTONrX1/view?usp=sharing)"
+)
 
 pickle_in = open('finalized_MMP_HC_model2.pkl', 'rb')
 my_model= pickle.load(pickle_in)
@@ -258,6 +262,7 @@ with c2:
         """,
         unsafe_allow_html=True,
     )
+
 
 
 
