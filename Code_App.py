@@ -42,9 +42,46 @@ st.markdown(
     "[Click here](https://drive.google.com/file/d/1HNyZjobmTEBcWfk0C2cmClQfahTONrX1/view?usp=sharing)"
 )
 
+
+# --------------------------
+# Contributor images / blocks
+# --------------------------
+APP_DIR = Path(__file__).resolve().parent
+
+
+def show_resized_image(img_name: str, target_height: int = 200):
+    img_path = APP_DIR / img_name
+    if not img_path.exists():
+        st.warning(f"Missing image file: {img_name} (place it next to this app if you want it shown).")
+        return
+    img = Image.open(img_path)
+    w, h = img.size
+    new_h = target_height
+    new_w = int(w * (new_h / h))
+    st.image(img.resize((new_w, new_h)))
+
+
+c1, c2 = st.columns([1, 1])
+
+with c1:
+    show_resized_image("Utk.jpeg", 180)
+    st.markdown(
+        "**Utkarsh Sinha**  \nVolunteer Research Associate  \nInteraction of Phase-Behavior and Flow (IPB&F) Consortium"
+    )
+with c2:
+    show_resized_image("dindoruk_birol_2023_ns.png", 180)
+    st.markdown(
+        "**Dr. Birol Dindoruk**  \nProfessor  \nHarold Vance Department of Petroleum Engineering,  \nTexas A&M University"
+    )
+
+st.divider()
+
+
 pickle_in = open('finalized_MMP_HC_model2.pkl', 'rb')
 my_model= pickle.load(pickle_in)
 # print(my_model)
+
+
 
 
 # df=pd.read_csv("App_test_MMP_HC.csv")
@@ -223,69 +260,9 @@ def load_square_image(path_or_url: str, size: int = 200) -> Optional[Image.Image
     except Exception:
         return None
 # Authors section
-def load_square_image(path_or_url):
-    try:
-        # Handle URL
-        if str(path_or_url).startswith("http"):
-            response = requests.get(path_or_url)
-            return Image.open(BytesIO(response.content))
-
-        # Handle local file
-        path = Path(path_or_url)
-        if path.exists():
-            return Image.open(path)
-
-        return None
-
-    except Exception:
-        return None
 
 
-c1, c2 = st.columns(2)
 
-# -------------------------
-# Column 1 – Utkarsh
-# -------------------------
-with c1:
-    img2 = load_square_image("utkarsh.jpg")
-
-    if img2 is None:
-        img2 = load_square_image(
-            "https://upload.wikimedia.org/wikipedia/commons/8/88/Placeholder_avatar.png"
-        )
-
-    st.image(img2, caption="Utkarsh Sinha", width=160)
-
-    st.markdown(
-        """
-        **Utkarsh Sinha**  
-        Volunteer Research Associate  
-        Interaction of Phase-Behavior and Flow (IPB&F) Consortium
-        """
-    )
-
-
-# -------------------------
-# Column 2 – Dr. Dindoruk
-# -------------------------
-with c2:
-    img1 = load_square_image("birol.jpg")
-
-    if img1 is None:
-        img1 = load_square_image(
-            "https://upload.wikimedia.org/wikipedia/commons/8/88/Placeholder_avatar.png"
-        )
-
-    st.image(img1, caption="Dr. Birol Dindoruk", width=160)
-
-    st.markdown(
-        """
-        **Dr. Birol Dindoruk**  
-        Professor  
-        Harold Vance Department of Petroleum Engineering  
-        Texas A&M University
-        """
-    )
 
 
 
