@@ -172,7 +172,7 @@ st.markdown("**Developed by** - Utkarsh Sinha and Dr. Birol Dindoruk")
 
 st.markdown(
     "[Ref. - Sinha, U., Dindoruk, B., & Soliman, M. (2021).  Physics guided data-driven model to estimate minimum "
-    "miscibility pressure (MMP) for hydrocarbon gases. Geoenergy Science and Engineering, 211389.](https://www.sciencedirect.com/science/article/abs/pii/S294989102200077X)"
+    "miscibility pressure (MMP) for hydrocarbon gases. Geoenergy Science and Engineering, 211389.](https://doi.org/10.1016/j.geoen.2022.211389)"
 )
 st.markdown("**Product Description:** Calculates the Minimum Miscibility Pressure (psia) for CH4 dominant hydrocarbon gas injection.")
 st.markdown(
@@ -228,6 +228,7 @@ if uploaded_file is not None:
     except Exception as e:
         st.error("Prediction failed. Check your CSV formatting and required columns.")
         st.exception(e)
+
 
 
 
