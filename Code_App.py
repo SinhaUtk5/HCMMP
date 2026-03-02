@@ -202,19 +202,28 @@ except Exception as e:
     st.error(f"Model load failed: {e}")
     st.stop()
 
+
 # --------------------------
 # File upload + prediction
 # --------------------------
 uploaded_file = st.file_uploader("Upload the input CSV file here", type=["csv"])
 
+# Blue info banner exactly like your screenshot
+if uploaded_file is None:
+    st.info("Upload a CSV to enable prediction.")
+    predict_disabled = True
+else:
+    predict_disabled = False
 
+# Keep the predict button always visible, but disabled until file is uploaded
+run_pred = st.button("Run prediction", disabled=predict_disabled)
 
 if uploaded_file is not None:
     try:
         df_in = pd.read_csv(uploaded_file)
         st.write("Preview:", df_in.head())
 
-        if st.button("Predict MMP (Psia)"):
+        if run_pred:
             df_out = predict_mmp_from_dataframe(df_in, my_model)
             st.success("Prediction completed.")
             st.write(df_out)
@@ -230,6 +239,7 @@ if uploaded_file is not None:
     except Exception as e:
         st.error("Prediction failed. Check your CSV formatting and required columns.")
         st.exception(e)
+
 
 
 
