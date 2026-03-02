@@ -26,7 +26,7 @@ import requests
 # read a CSV file inside the 'data" folder next to 'app.py'
 # df = pd.read_excel(...)  # will work for Excel files
 html_temp = """
-st.title("CO2 MMP Calculator")
+st.title("Hydrocarbon Gas (HC) MMP Calculator")
 st.markdown("A product of Interaction of Phase-Behavior and Flow (IPB&F) Consortium")
 
 st.markdown("**Developed by** - Utkarsh Sinha and Dr. Birol Dindoruk")
@@ -262,6 +262,7 @@ with c2:
         """,
         unsafe_allow_html=True,
     )
+
 
 
 
