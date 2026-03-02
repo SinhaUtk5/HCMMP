@@ -224,45 +224,69 @@ def load_square_image(path_or_url: str, size: int = 200) -> Optional[Image.Image
     except Exception:
         return None
 # Authors section
+def load_square_image(path_or_url):
+    try:
+        # Handle URL
+        if str(path_or_url).startswith("http"):
+            response = requests.get(path_or_url)
+            return Image.open(BytesIO(response.content))
+
+        # Handle local file
+        path = Path(path_or_url)
+        if path.exists():
+            return Image.open(path)
+
+        return None
+
+    except Exception:
+        return None
+
+
 c1, c2 = st.columns(2)
 
-
+# -------------------------
+# Column 1 – Utkarsh
+# -------------------------
 with c1:
-    img2 = load_square_image("utkarsh.jpg") or load_square_image(
-        "https://upload.wikimedia.org/wikipedia/commons/8/88/Placeholder_avatar.png"
-    )
-    if img2:
-        st.image(img2, caption="Utkarsh Sinha", width=150)
+    img2 = load_square_image("utkarsh.jpg")
+
+    if img2 is None:
+        img2 = load_square_image(
+            "https://upload.wikimedia.org/wikipedia/commons/8/88/Placeholder_avatar.png"
+        )
+
+    st.image(img2, caption="Utkarsh Sinha", width=160)
+
     st.markdown(
         """
-        **Utkarsh Sinha**<br>
-        Volunteer Research Associate <br>
-        Interaction of Phase-Behavior and Flow (IPB&F) Consortium<br>
-        """,
-        unsafe_allow_html=True,
+        **Utkarsh Sinha**  
+        Volunteer Research Associate  
+        Interaction of Phase-Behavior and Flow (IPB&F) Consortium
+        """
     )
 
 
-        
-    #print('result===',result)
-
-
+# -------------------------
+# Column 2 – Dr. Dindoruk
+# -------------------------
 with c2:
-    img1 = load_square_image("birol.jpg") or load_square_image(
-        "https://upload.wikimedia.org/wikipedia/commons/8/88/Placeholder_avatar.png"
-    )
-    if img1:
-        st.image(img1, caption="Dr. Birol Dindoruk", width=150)
+    img1 = load_square_image("birol.jpg")
+
+    if img1 is None:
+        img1 = load_square_image(
+            "https://upload.wikimedia.org/wikipedia/commons/8/88/Placeholder_avatar.png"
+        )
+
+    st.image(img1, caption="Dr. Birol Dindoruk", width=160)
+
     st.markdown(
         """
-        **Dr. Birol Dindoruk**<br>
-        Professor<br>
-        Harold Vance Department of Petroleum Engineering,<br>
+        **Dr. Birol Dindoruk**  
+        Professor  
+        Harold Vance Department of Petroleum Engineering  
         Texas A&M University
-        """,
-        unsafe_allow_html=True,
+        """
     )
-
 
 
 
