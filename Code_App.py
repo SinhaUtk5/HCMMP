@@ -205,7 +205,7 @@ except Exception as e:
 # --------------------------
 # File upload + prediction
 # --------------------------
-uploaded = st.file_uploader("Upload the input CSV file here", type=["csv"])
+uploaded_file = st.file_uploader("Upload the input CSV file here", type=["csv"])
 
 if uploaded_file is not None:
     try:
@@ -228,6 +228,7 @@ if uploaded_file is not None:
     except Exception as e:
         st.error("Prediction failed. Check your CSV formatting and required columns.")
         st.exception(e)
+
 
 
 
