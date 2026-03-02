@@ -221,23 +221,9 @@ def load_square_image(path_or_url: str, size: int = 200) -> Optional[Image.Image
         return None
 # Authors section
 c1, c2 = st.columns(2)
-with c1:
-    img1 = load_square_image("birol.jpg") or load_square_image(
-        "https://upload.wikimedia.org/wikipedia/commons/8/88/Placeholder_avatar.png"
-    )
-    if img1:
-        st.image(img1, caption="Dr. Birol Dindoruk", width=150)
-    st.markdown(
-        """
-        **Dr. Birol Dindoruk**<br>
-        Professor<br>
-        Harold Vance Department of Petroleum Engineering,<br>
-        Texas A&M University
-        """,
-        unsafe_allow_html=True,
-    )
 
-with c2:
+
+with c1:
     img2 = load_square_image("utkarsh.jpg") or load_square_image(
         "https://upload.wikimedia.org/wikipedia/commons/8/88/Placeholder_avatar.png"
     )
@@ -257,6 +243,21 @@ with c2:
     #print('result===',result)
 
 
+with c2:
+    img1 = load_square_image("birol.jpg") or load_square_image(
+        "https://upload.wikimedia.org/wikipedia/commons/8/88/Placeholder_avatar.png"
+    )
+    if img1:
+        st.image(img1, caption="Dr. Birol Dindoruk", width=150)
+    st.markdown(
+        """
+        **Dr. Birol Dindoruk**<br>
+        Professor<br>
+        Harold Vance Department of Petroleum Engineering,<br>
+        Texas A&M University
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 
