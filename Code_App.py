@@ -184,10 +184,10 @@ st.markdown(
 # --------------------------
 c1, c2 = st.columns([1, 1])
 with c1:
-    show_resized_image("Utk.jpeg", 180)
+    show_resized_image("Utkarsh.jpg", 180)
     st.markdown("**Utkarsh Sinha**  \nVolunteer Research Associate  \nInteraction of Phase-Behavior and Flow (IPB&F) Consortium")
 with c2:
-    show_resized_image("dindoruk_birol_2023_ns.png", 180)
+    show_resized_image("birol.jpg", 180)
     st.markdown("**Dr. Birol Dindoruk**  \nProfessor  \nHarold Vance Department of Petroleum Engineering,  \nTexas A&M University")
 
 st.divider()
@@ -237,3 +237,4 @@ st.subheader(
     "miscibility pressure (MMP) for hydrocarbon gases. Geoenergy Science and Engineering, 211389.]"
     "(https://www.sciencedirect.com/science/article/abs/pii/S294989102200077X)"
 )
+
