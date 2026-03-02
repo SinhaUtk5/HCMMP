@@ -25,7 +25,6 @@ import requests
 # df = pd.read_csv("C:/Utilities/MMP Papers/HC inj code/MMP_HC_Data ALLwith SG_Clean.csv")  
 # read a CSV file inside the 'data" folder next to 'app.py'
 # df = pd.read_excel(...)  # will work for Excel files
-html_temp = """
 st.title("Hydrocarbon Gas (HC) MMP Calculator")
 st.markdown("A product of Interaction of Phase-Behavior and Flow (IPB&F) Consortium")
 
@@ -287,6 +286,7 @@ with c2:
         Texas A&M University
         """
     )
+
 
 
 
