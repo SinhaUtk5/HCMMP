@@ -208,25 +208,25 @@ except Exception as e:
 uploaded_file = st.file_uploader("Upload the input CSV file here", type=["csv"])
 
 try:
-        df_in = pd.read_csv(uploaded_file)
-        st.write("Preview:", df_in.head())
+    df_in = pd.read_csv(uploaded_file)
+    st.write("Preview:", df_in.head())
 
-        if st.button("Predict MMP (Psia)"):
-            df_out = predict_mmp_from_dataframe(df_in, my_model)
-            st.success("Prediction completed.")
-            st.write(df_out)
+    if st.button("Predict MMP (Psia)"):
+        df_out = predict_mmp_from_dataframe(df_in, my_model)
+        st.success("Prediction completed.")
+        st.write(df_out)
 
-            csv_bytes = convert_df(df_out)
-            st.download_button(
-                label="Download results as CSV",
-                data=csv_bytes,
-                file_name="HC_MMP_predictions.csv",
-                mime="text/csv",
-            )
+        csv_bytes = convert_df(df_out)
+        st.download_button(
+            label="Download results as CSV",
+            data=csv_bytes,
+            file_name="HC_MMP_predictions.csv",
+            mime="text/csv",
+        )
 
 except Exception as e:
-        st.error("Prediction failed. Check your CSV formatting and required columns.")
-        st.exception(e)
+    st.error("Prediction failed. Check your CSV formatting and required columns.")
+    st.exception(e)
 
 
 
