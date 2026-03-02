@@ -171,7 +171,8 @@ st.markdown("A product of Interaction of Phase-Behavior and Flow (IPB&F) Consort
 st.markdown("**Developed by** - Utkarsh Sinha and Dr. Birol Dindoruk")
 
 st.markdown(
-    "[Ref. - Sinha, U., Dindoruk, B., & Soliman, M. (2021). Prediction of CO2 Minimum Miscibility Pressure Using an Augmented Machine-Learning-Based Model. SPE Journal, 1-13.](https://doi.org/10.2118/200326-PA)"
+    "[Ref. - Sinha, U., Dindoruk, B., & Soliman, M. (2021).  Physics guided data-driven model to estimate minimum "
+    "miscibility pressure (MMP) for hydrocarbon gases. Geoenergy Science and Engineering, 211389.](https://www.sciencedirect.com/science/article/abs/pii/S294989102200077X)"
 )
 st.markdown("**Product Description:** Calculates the Minimum Miscibility Pressure (psia) for CH4 dominant hydrocarbon gas injection.")
 st.markdown(
@@ -228,14 +229,6 @@ if uploaded_file is not None:
         st.error("Prediction failed. Check your CSV formatting and required columns.")
         st.exception(e)
 
-st.divider()
 
-st.subheader(
-    "Developed by [Utkarsh Sinha](https://www.linkedin.com/in/utkarsh-sinha-ba398b75/) and "
-    "[Dr. Birol Dindoruk](https://www.petro.uh.edu/faculty/dindoruk) based on the work in "
-    "Ref:-[ Sinha U., Dindoruk B., & Soliman M. (2023). Physics guided data-driven model to estimate minimum "
-    "miscibility pressure (MMP) for hydrocarbon gases. Geoenergy Science and Engineering, 211389.]"
-    "(https://www.sciencedirect.com/science/article/abs/pii/S294989102200077X)"
-)
 
 
