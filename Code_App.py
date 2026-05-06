@@ -16,9 +16,8 @@ st.set_page_config(page_title="HC MMP Calculator", layout="wide")
 
 APP_DIR = Path(__file__).resolve().parent
 
-#----------------------------
-Add Logo of TAMU and IPB&F
-#---------------------------------
+# --- Top logos ---------------------------------------------------------------------
+
 with logo1:
     if os.path.exists("TAMU.png"):
         st.image("TAMU.png", width=200)
