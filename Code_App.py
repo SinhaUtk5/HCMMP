@@ -196,7 +196,7 @@ st.markdown(
 c1, c2 = st.columns([1, 1])
 with c1:
     show_resized_image("utkarsh.jpg", 180)
-    st.markdown("**Utkarsh Sinha**  \nVolunteer Research Associate  \nInteraction of Phase-Behavior and Flow (IPB&F) Consortium")
+    st.markdown("**Utkarsh Sinha**  \nVolunteer Research Fellow  \nInteraction of Phase-Behavior and Flow (IPB&F) Consortium")
 with c2:
     show_resized_image("birol.jpg", 180)
     st.markdown("**Dr. Birol Dindoruk**  \nProfessor  \nHarold Vance Department of Petroleum Engineering,  \nTexas A&M University")
