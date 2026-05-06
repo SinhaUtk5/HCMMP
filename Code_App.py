@@ -17,6 +17,7 @@ st.set_page_config(page_title="HC MMP Calculator", layout="wide")
 APP_DIR = Path(__file__).resolve().parent
 
 # --- Top logos ---------------------------------------------------------------------
+left_space, logo1, logo2, right_space = st.columns([1, 1, 1, 1])
 
 with logo1:
     if os.path.exists("TAMU.png"):
